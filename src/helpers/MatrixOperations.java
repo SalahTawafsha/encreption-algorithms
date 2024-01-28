@@ -1,4 +1,4 @@
-package math;
+package helpers;
 
 public class MatrixOperations {
     private static final String[][] S_BOX = {

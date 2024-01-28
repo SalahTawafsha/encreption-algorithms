@@ -1,8 +1,8 @@
 package algorithms;
 
-import math.MatrixOperations;
-import math.MyMath;
-import math.Printer;
+import helpers.MatrixOperations;
+import helpers.MyMath;
+import helpers.Printer;
 
 public class AES implements EncryptionAlgorithm {
     private final String[][][] keys;

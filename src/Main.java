@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Main {
     private static final String CHOOSE_ALGORITHM = "1. AES\n2. RSA\n3. ColumnarCipher\n4. PlayFair\n5. Exit\nEnter your choice: ";
-    private static final String ENCRYPT_OR_DECRYPTION = "1. Encrypt\n2. Decrypt\nEnter your choice: ";
+    private static final String ENCRYPT_OR_DECRYPTION = "1. Encrypt\n2. Decrypt\n3. exit\nEnter your choice: ";
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -20,6 +20,8 @@ public class Main {
                 switch (choice) {
                     case '1' -> {
                         encryptOrDecrypt = getEncryptOrDecrypt(scanner);
+
+                        if (encryptOrDecrypt == 3) break;
                         System.out.println("Enter a 32 char hex key:");
                         key = scanner.next();
                         if (key.length() != 32) throw new Exception("Key must be 32 chars long");
@@ -47,6 +49,8 @@ public class Main {
                     case '2' -> {
                         encryptOrDecrypt = getEncryptOrDecrypt(scanner);
                         scanner.nextLine(); // to consume the \n
+
+                        if (encryptOrDecrypt == 3) break;
 
                         if (encryptOrDecrypt == 1) {
 
@@ -76,6 +80,9 @@ public class Main {
                     case '3' -> {
                         encryptOrDecrypt = getEncryptOrDecrypt(scanner);
                         scanner.nextLine(); // to consume the \n
+
+                        if (encryptOrDecrypt == 3) break;
+
                         System.out.println("Enter the key:");
                         key = scanner.nextLine();
                         if (encryptOrDecrypt == 1) {
@@ -96,6 +103,8 @@ public class Main {
                     case '4' -> {
                         encryptOrDecrypt = getEncryptOrDecrypt(scanner);
                         scanner.nextLine(); // to consume the \n
+
+                        if (encryptOrDecrypt == 3) break;
 
                         if (encryptOrDecrypt == 1) {
                             System.out.println("Enter the plaintext:");
@@ -130,7 +139,7 @@ public class Main {
     private static int getEncryptOrDecrypt(Scanner scanner) {
         System.out.printf(ENCRYPT_OR_DECRYPTION);
         int encryptOrDecrypt = scanner.nextInt();
-        while (encryptOrDecrypt != 1 && encryptOrDecrypt != 2) {
+        while (encryptOrDecrypt != 1 && encryptOrDecrypt != 2 && encryptOrDecrypt != 3) {
             System.out.println("Invalid choice, please enter 1 or 2");
             System.out.printf(ENCRYPT_OR_DECRYPTION);
             encryptOrDecrypt = scanner.nextInt();

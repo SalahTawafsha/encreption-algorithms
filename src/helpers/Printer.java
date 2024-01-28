@@ -1,4 +1,4 @@
-package math;
+package helpers;
 
 public class Printer {
     public static void printKeys(String[][][] keys, String message) {
