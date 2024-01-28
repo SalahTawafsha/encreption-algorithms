@@ -3,7 +3,7 @@ package algorithms;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ColumnarCipher implements Encryption {
+public class ColumnarCipher implements EncryptionAlgorithm {
     private final List<Integer> keyOrder;
 
     public ColumnarCipher(String key) {

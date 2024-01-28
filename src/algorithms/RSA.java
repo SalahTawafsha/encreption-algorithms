@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
 
-public class RSA implements Encryption {
+public class RSA implements EncryptionAlgorithm {
     private static final HashSet<Integer> prime = new HashSet<>();
     private static final Random random = new Random();
     private Long publicKey = null;

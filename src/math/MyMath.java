@@ -111,4 +111,9 @@ public class MyMath {
         return result;
     }
 
+    public static int getPositiveModulo(int number, int divisor) {
+        return ((number % divisor) + divisor) % divisor;
+    }
+
+
 }

@@ -1,7 +1,4 @@
-import algorithms.AES;
-import algorithms.ColumnarCipher;
-import algorithms.Encryption;
-import algorithms.RSA;
+import algorithms.*;
 
 import java.util.Scanner;
 
@@ -12,7 +9,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         char choice;
-        Encryption encryptionAlgorithm;
+        EncryptionAlgorithm encryptionAlgorithm;
         String key;
         int encryptOrDecrypt;
 
@@ -31,6 +28,8 @@ public class Main {
 
                             System.out.println("Enter the plaintext:");
                             String plainText = scanner.next();
+                            if (!plainText.matches("[0-9a-fA-F]+"))
+                                throw new Exception("Plaintext must be a hex number");
 
                             encryptionAlgorithm = new AES(key);
                             System.out.println("Encrypted message: " + encryptionAlgorithm.encrypt(plainText));
@@ -95,6 +94,23 @@ public class Main {
                         }
                     }
                     case '4' -> {
+                        encryptOrDecrypt = getEncryptOrDecrypt(scanner);
+                        scanner.nextLine(); // to consume the \n
+
+                        if (encryptOrDecrypt == 1) {
+                            System.out.println("Enter the plaintext:");
+                            String plainText = scanner.nextLine();
+
+                            encryptionAlgorithm = new PlayFair();
+                            System.out.println("Encrypted message: " + encryptionAlgorithm.encrypt(plainText));
+                        } else {
+                            System.out.println("Enter the ciphertext:");
+                            String cipherText = scanner.nextLine();
+
+                            encryptionAlgorithm = new PlayFair();
+                            String decrypted = encryptionAlgorithm.decrypt(cipherText);
+                            System.out.println("Decrypted message: " + decrypted);
+                        }
                     }
                     case '5' -> {
                         scanner.close();

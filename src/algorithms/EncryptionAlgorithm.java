@@ -1,6 +1,6 @@
 package algorithms;
 
-public interface Encryption {
+public interface EncryptionAlgorithm {
     // encrypt String message
     String encrypt(String plainText);
 

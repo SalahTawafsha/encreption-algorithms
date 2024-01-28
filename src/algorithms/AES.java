@@ -4,7 +4,7 @@ import math.MatrixOperations;
 import math.MyMath;
 import math.Printer;
 
-public class AES implements Encryption {
+public class AES implements EncryptionAlgorithm {
     private final String[][][] keys;
     private static final String[][] S_BOX = {
             {"63", "7C", "77", "7B", "F2", "6B", "6F", "C5", "30", "01", "67", "2B", "FE", "D7", "AB", "76"},
