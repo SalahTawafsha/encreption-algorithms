@@ -43,7 +43,7 @@ public class ColumnarCipher implements Encryption {
                 if (messageIndex < plainText.length()) {
                     matrix[i][j] = plainText.charAt(messageIndex++);
                 } else {
-                    matrix[i][j] = 'X';
+                    matrix[i][j] = 0;
                 }
             }
         }
@@ -73,7 +73,7 @@ public class ColumnarCipher implements Encryption {
         StringBuilder plainText = new StringBuilder();
         for (char[] chars : matrix) {
             for (char aChar : chars) {
-                if (aChar != 'X') {
+                if (aChar != 0) {
                     plainText.append(aChar);
                 }
             }
