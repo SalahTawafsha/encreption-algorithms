@@ -28,7 +28,7 @@ public class Main {
                         if (!key.matches("[0-9a-fA-F]+")) throw new Exception("Key must be a hex number");
                         if (encryptOrDecrypt == 1) {
 
-                            System.out.println("Enter the plaintext:");
+                            System.out.println("Enter the hex plaintext:");
                             String plainText = scanner.next();
                             if (!plainText.matches("[0-9a-fA-F]+"))
                                 throw new Exception("Plaintext must be a hex number");
